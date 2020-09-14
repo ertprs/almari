@@ -1,0 +1,104 @@
+<%- include('header', {title: title}); %>
+<div class="content">
+    
+    <!-- Start Content-->
+    <div class="container-fluid">
+        <div class="row page-title">
+            <div class="col-md-12">
+                <nav aria-label="breadcrumb" class="float-right mt-1">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="/process">Kelola Pesanan</a></li>
+                    </ol>
+                </nav>
+                <h4 class="mb-1 mt-0">Kelola Pesanan</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped mb-0">
+                                <thead>
+                                    <tr>
+                                    <th scope="col">Tgl. Proses</th>
+                                    <th scope="col">Pemesan</th>
+                                    <th scope="col">Pesanan</th>
+                                    <th scope="col">Jumlah</th>
+                                    <th scope="col">Nama</th>
+                                    <th scope="col">Kurir</th>
+                                    <th scope="col">Penerima</th>
+                                    <th scope="col">Alamat</th>
+                                    <th scope="col">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody_inbox">                                    
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="4">
+                                            <div class="d-flex justify-content-center">
+                                                <div id="div_pagination"></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
+        
+        <div id="modal-print" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog mw-100 w-75" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Choose Sender</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form method="post" id="form-print" class="needs-validation" novalidate>
+                  <div class="form-row">
+                    <div class="col-md-5 mb-3">
+                      <label for="validationTooltip01">Pusat / Cabang</label>
+                      <input name="store" type="text" id="input-store" class="form-control" id="validationTooltip01" placeholder="" value="" required>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="validationTooltip01">Nama Toko</label>
+                      <input name="name" id="input-name" type="text" class="form-control" id="validationTooltip01" placeholder="" value="" required>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                      <label for="validationTooltip01">No. Hp</label>
+                      <input name="phone" id="input-phone" type="text" class="form-control" id="validationTooltip01" placeholder="" value="" required>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <label for="validationTooltip01">Alamat</label>
+                      <textarea name="address" id="input-address" class="form-control" id="validationTooltip01"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="col-md-12 mb-3">
+                      <input class="form-controll pull-right" type="checkbox" checked="false" id="is_reseler" /> reseler ?
+                      <input name="id" type="hidden" id="data-id" />
+                    </div>
+                  </div>
+                  <button class="btn btn-sm btn-primary float-right" type="submit"><i class="fa fa-cog"></i> Print Preview</button>
+                  <button type="button" class="btn btn-sm btn-secondary float-left" data-dismiss="modal">Close</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div> <!-- container-fluid -->
+
+</div> <!-- content -->
+<%- include('footer', {footer_text: footer_text}); %>

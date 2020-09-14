@@ -1,0 +1,124 @@
+<%- include('header', {title: title}); %>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row page-title align-items-center">
+            <div class="col-sm-4 col-xl-6">
+                <h4 class="mb-1 mt-0">Dashboard</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body p-0 media px-3 py-1 border-bottom">
+                        <form id="filter-dashboard" class="form-inline">
+                          <div class="form-group mb-2">
+                            <label for="staticEmail2" >Filter Berdasarkan Bulan / Tahun : </label>
+                          </div>
+                          <div class="form-group mx-sm-3 mb-2">
+                            <select id="filter-bulan" class="form-control">
+                                <option value="1">Januari</option>
+                                <option value="2">Februari</option>
+                                <option value="3">Maret</option>
+                                <option value="4">April</option>
+                                <option value="5">Mei</option>
+                                <option value="6">Juni</option>
+                                <option value="7">Juli</option>
+                                <option value="8">Agustus</option>
+                                <option value="9">September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
+                            </select>
+                            &nbsp;&nbsp;
+                            <select id="filter-tahun" class="form-control">
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                          </div>
+                          <button id="btn-filter" type="submit" class="btn btn-primary mb-2">Terapkan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>            
+
+        <!-- stats + charts -->
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body p-0">
+                        <h5 class="card-title header-title border-bottom p-3 mb-0">Overview</h5>
+                        <!-- stat 1 -->
+                        <div class="media px-3 py-4 border-bottom">
+                            <div class="media-body">
+                                <h4 id="total-pesan" class="mt-0 mb-1 font-size-22 font-weight-normal">0</h4>
+
+                                <span class="text-muted">Pesan masuk</span>
+                            </div>
+                            <a onclick="showDashboardModal('pesan');" href="javascript:void(0);"><i data-feather="mail" class="align-self-center icon-dual icon-lg"></i></a>
+                        </div>
+
+                        <!-- stat 2 -->
+                        <div class="media px-3 py-4 border-bottom">
+                            <div class="media-body">
+                                <h4 id="total-proses" class="mt-0 mb-1 font-size-22 font-weight-normal">0</h4>
+                                <span class="text-muted">Pesanan di proses</span>
+                            </div>
+                            <a onclick="showDashboardModal('proses');" href="javascript:void(0);"><i data-feather="book-open" class="align-self-center icon-dual icon-lg"></i></a>
+                        </div>
+
+                        <!-- stat 3 -->
+                        <div class="media px-3 py-4">
+                            <div class="media-body">
+                                <h4 id="total-terkirim" class="mt-0 mb-1 font-size-22 font-weight-normal">0</h4>
+                                <span class="text-muted">Produk terkirim</span>
+                            </div>
+                            <a onclick="showDashboardModal('kirim');" href="javascript:void(0);"><i data-feather="send" class="align-self-center icon-dual icon-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-0 mb-0 header-title">Kurir Populer</h5>
+                        <div id="chart-kurir" class="apex-charts mb-0 mt-4" dir="ltr"></div>
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+            <div class="col-xl-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title mt-0 mb-0 header-title">Pembeli Aktif</h5>
+                        <div id="chart-orang" class="apex-charts mb-0 mt-4" dir="ltr"></div>
+                    </div> <!-- end card-body-->
+                </div> <!-- end card-->
+            </div> <!-- end col-->
+        </div>
+        <!-- row -->
+    </div>
+
+    <div id="dashboard-modal" class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 id="dashboard-modal-title" class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div style="height:400px;overflow: auto;font-size:10px;" id="dashboard-modal-body" class="modal-body">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>    
+</div> <!-- content -->
+<%- include('footer', {footer_text: footer_text}); %>

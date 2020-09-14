@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+        <% css_include.forEach(function(url_css){ %>
+        <link href="<%= url_css %>?time=<%= new Date().getTime() %>" rel="stylesheet" />
+        <% }); %>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+        <style type="text/css">
+        	* {
+        		font-family: 'Roboto', sans-serif !important;
+        	}
+            .the-legend {
+                border-style: none;
+                border-width: 0;
+                font-size: 14px;
+                line-height: 20px;
+                margin-bottom: 0;
+                width: auto !important;
+                padding: 0 10px;
+                border: 1px solid #ccc;
+            }
+            .the-fieldset {
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+
+            .layout {
+            	padding:5px !important;
+            }
+
+            .border-layout {
+            	margin:2px;
+            	padding:2px;
+            }
+
+			.scissors {
+			    height: 43px; /* image height */
+			    width: 60%;
+			    margin: auto auto;
+			    background-image: url('/assets/images/scissors.png');
+			    background-size: 30px;
+			    background-repeat: no-repeat;
+			    background-position: right;
+			    position: relative;
+			}
+			.scissors div {
+			    position: relative;
+			    top: 50%;
+			    border-top: 3px dashed #ccc;
+			    margin-top: -3px;
+			}
+
+			@media print {
+			* {
+			    -webkit-print-color-adjust: exact !important; /*Chrome, Safari */
+			    color-adjust: exact !important;  /*Firefox*/
+			  }
+			}
+        </style>
+</head>
+<body>
+<div class="container layout ">
+	<div class="row border-layout justify-content-center">
+		<div class="col-md-6 ">
+          <fieldset class="the-fieldset">
+              <legend class="the-legend">TUJUAN</legend>
+			<table>
+				<tr>
+					<td valign="TOP" style="width:80px;">NAMA</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td valign="TOP">-</td>
+				</tr>
+				<tr>
+					<td valign="TOP" style="width:80px;">ALAMAT</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td valign="TOP" style="width:80px;">JENIS</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td valign="TOP" style="width:80px;">KURIR</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td style="width:80px;">HP</td>
+					<td style="width:30px;">:</td>
+					<td valign="TOP">-</td>
+				</tr>			
+			</table>
+		  </fieldset>
+		</div>
+	</div>
+<div class="scissors">
+    <div></div>
+</div>
+	<div class="row border-layout justify-content-center">
+		<div class="col-md-6">
+          <fieldset class="the-fieldset">
+              <legend class="the-legend">PENGIRIM</legend>
+			<table>
+				<tr>
+					<td valign="TOP" style="width:80px;">TOKO</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td valign="TOP">-</td>
+				</tr>
+				<tr>
+					<td valign="TOP" style="width:80px;">NAMA</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td valign="TOP">-</td>
+				</tr>
+				<tr>
+					<td valign="TOP" style="width:80px;">ALAMAT</td>
+					<td valign="TOP" style="width:30px;">:</td>
+					<td>-</td>
+				</tr>
+				<tr>
+					<td style="width:80px;">HP</td>
+					<td style="width:30px;">:</td>
+					<td valign="TOP">-</td>
+				</tr>			
+			</table>
+		  </fieldset>
+		</div>
+	</div>
+<div class="scissors">
+    <div></div>
+</div>
+
+</div>
+<% js_include.forEach(function(url_js){ %>
+<script src="<%= url_js %>?time=<%= new Date().getTime() %>"></script>
+<% }); %>
+</body>
+</html>
