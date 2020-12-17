@@ -1,7 +1,7 @@
 {
   "name": "backend_whatsapp",
-  "version": "1.0.0",
-  "description": "Backend Whatsapp v.1.0.0",
+  "version": "1.0.1",
+  "description": "Backend Whatsapp v.1.0.1",
   "main": "index.js",
   "bin": "index.js",
   "scripts": {
